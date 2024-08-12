@@ -23,7 +23,9 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
 }
+
 
 nav ul li {
     margin: 20px;
@@ -93,6 +95,13 @@ p {
     margin-bottom: 50px;
 }
 
+h1, h2, h3, p {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+}
+
+
 /* Estilo para el footer */
 footer {
     background-color: #333; /* Celeste pastel */
@@ -150,8 +159,9 @@ footer {
 
 /* Estilos específicos para la cuadrícula de imágenes en la página 3 */
 .page3 .image-grid {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Tamaño mínimo más pequeño para mejor ajuste */
 }
+
 
 
 /* Estilos específicos para imágenes en la página 3 */
@@ -192,28 +202,30 @@ footer {
     transform: scale(1.1);
 }
 
-/* Consultas de medios para diseño responsivo */
 
-/* Estilos para pantallas pequeñas */
-@media (max-width: 768px) {
+
+/* Estilos para pantallas medianas */
+@media (max-width: 1024px) {
     .image-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .index .styled-image, 
+    .page2 .styled-image {
+        max-width: 90%;
     }
 }
 
-/* Estilos para pantallas extra pequeñas */
-@media (max-width: 480px) {
+/* Estilos para pantallas extra grandes */
+@media (min-width: 1200px) {
     .image-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     }
+}
 
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li a {
-        padding: 10px;
-        font-size: 14px;
+@media (max-width: 480px) {
+    footer {
+        position: relative; /* Permite que el footer se ajuste al contenido en pantallas pequeñas */
+        padding: 15px 10px; /* Aumenta el padding para mejorar el toque en pantallas táctiles */
     }
 }
